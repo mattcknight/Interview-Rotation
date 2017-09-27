@@ -1,0 +1,26 @@
+{
+  "name": "rotation-ddc",
+  "version": "0.0.1",
+  "private": true,
+  "main": "server.js",
+  "description": "some stuff here",
+  "repository": "",
+  "scripts": {
+    "start": "node server.js",
+    "start-dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-messages": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "body-parser": "~1.17.1",
+    "express": "~4.15.2",
+    "less": "2.7.2",
+    "md5": "^2.2.1",
+    "method-override": "~2.3.8",
+    "mysql": "^2.12.0"
+  }
+}
