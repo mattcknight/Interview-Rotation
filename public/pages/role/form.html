@@ -1,0 +1,27 @@
+<div class="row" ng-hide="editMode">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/roles">Roles</a></li>
+        <li class="breadcrumb-item selected">New Role</li>
+    </ol>
+</div>
+<div class="row" ng-hide="role.id">
+    <div class="col-xs-10">
+        <h2>New <code>Role</code></h2>
+    </div>
+</div>
+<form name="frm" role="form" novalidate>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="name" class="sr-only control-label">Name</label>
+                <input id="name" name="name" placeholder="name" class="form-control" type="text" ng-model="role.name" ng-value="role.name" ng-minlength="2" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-padded-sm btn-md btn-default" ng-click="toggleEdit(false)"><i class="fa fa-arrow-left"></i> Back</button>
+            <button class="btn btn-padded-sm btn-md btn-primary" ng-click="save(role)" ng-disabled="!frm.$valid"><i class="fa fa-save"></i> Save</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-xs-10">
+        <h3>Release Trains</h3>
+    </div>
+    <div class="col-xs-2 text-right">
+        <a class="btn btn-padded btn-sm btn-info" href="#/releasetrain/create"><i class="fa fa-plus"></i></a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-responsive table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Teams</th>
+            </tr>
+            <tbody>
+                <tr ng-repeat="releasetrain in releasetrains | orderBy:'name'" style="cursor:pointer">
+                    <td><a ng-href="#/releasetrain/{{releasetrain.id}}">{{ releasetrain.name }}</a></td>
+                    <td>{{ releasetrain.teams }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

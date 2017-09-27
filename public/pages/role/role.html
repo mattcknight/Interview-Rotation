@@ -1,0 +1,31 @@
+<div class="row">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/roles">Roles</a></li>
+        <li class="breadcrumb-item active">{{ role.name }}</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-xs-8">
+        <h3 class="page-haeder"><code>{{ role.name }}</code></h3>
+    </div>
+    <div class="col-xs-4 text-right" ng-hide="editMode">
+        <button class="btn btn-padded btn-sm btn-info" ng-click="toggleEdit(true)"><i class="fa fa-pencil"></i></button>
+        <button class="btn btn-padded btn-sm btn-danger" ng-click="delete(role.id)" ng-disabled="employees.length > 0"><i class="fa fa-trash-o"></i></button>
+    </div>
+</div>
+<span ng-hide="editMode">
+    <div class="row">
+        <div class="col-xs-12">
+            <p></p>
+            <div class="panel panel-default">
+                <div class="panel-heading">Employees</div>
+                <div class="panel-body">
+                    <ul ng-repeat="employee in employees | orderBy:'last_name'" class="list-unstyled">
+                        <li><a href="#/employee/{{employee.id}}">{{ employee.first_name }} {{ employee.last_name }}</a>, ({{ employee.location }})</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+<span ng-include="formUrl"></span>

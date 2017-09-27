@@ -1,0 +1,36 @@
+<div class="row">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/interviewmodels">Models</a></li>
+        <li class="breadcrumb-item"><a href="#/interviewmodel/{{step.model_id}}">{{ step.model }}</a></li>
+        <li class="breadcrumb-item active">#{{ step.sequence }}: {{ step.name }}</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-xs-10">
+        <h3 class="page-haeder"><code>#{{ step.sequence }}</code>: <code>{{ step.name }}</code></h3>
+    </div>
+    <div class="col-xs-2 text-right" ng-hide="editMode">
+        <button class="btn btn-padded btn-sm btn-info" ng-click="toggleEdit(true)"><i class="fa fa-pencil"></i></button>
+        <button class="btn btn-padded btn-sm btn-danger" ng-click="delete(step.id)"><i class="fa fa-trash-o"></i></button>
+    </div>
+</div>
+<span ng-hide="editMode">
+    <div class="row">
+        <div class="col-xs-12">
+            <p></p>
+            <div class="panel panel-default">
+                <div class="panel-heading">Duration</div>
+                <div class="panel-body">{{ step.duration }} minutes</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Attendees</div>
+                <div class="panel-body">
+                    <span ng-repeat="r in step.attendees">
+                        ({{ r.quantity }}) {{ r.role }} <span ng-hide="!r.required"> (required)</span><br />
+</span>
+</div>
+</div>
+</div>
+</div>
+</span>
+<span ng-include="formUrl"></span>

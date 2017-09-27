@@ -1,0 +1,36 @@
+<div class="row" ng-hide="editMode">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/interviewmodels">Models</a></li>
+        <li class="breadcrumb-item selected">New Model</li>
+    </ol>
+</div>
+<div class="row" ng-hide="interviewmodel.id">
+    <div class="col-xs-12">
+        <h3>New <code>Model</code></h3>
+    </div>
+</div>
+<form name="frm" novalidate>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="name" class="form-control" type="text" ng-model="interviewmodel.name" ng-value="interviewmodel.name" ng-minlength="2" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group checkbox">
+                <label>
+                    <input id="isDefault" name="isDefault" type="checkbox" ng-model="interviewmodel.isDefault" ng-checked="interviewmodel.isDefault"> Default
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-padded-sm btn-md btn-default" ng-click="toggleEdit(false)"><i class="fa fa-arrow-left"></i> Back</button>
+            <button class="btn btn-padded-sm btn-md btn-primary" ng-click="save(interviewmodel)" ng-disabled="!frm.$valid"><i class="fa fa-save"></i> Save</button>
+        </div>
+    </div>
+</form>

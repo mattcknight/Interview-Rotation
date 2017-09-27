@@ -1,0 +1,64 @@
+<div class="row" ng-hide="editMode">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/interviewmodels">Models</a></li>
+        <li class="breadcrumb-item"><a href="#/interviewmodel/{{ step.model_id}}">{{ step.model }}</a></li>
+        <li class="breadcrumb-item">New Step</li>
+    </ol>
+</div>
+<div class="row" ng-hide="step.id">
+    <div class="col-xs-12">
+        <h3>New <code>Step</code></h3>
+    </div>
+</div>
+<form name="frm" novalidate>
+    <div class="row">
+        <div class="form-group col-xs-12">
+            <label>Model</label>
+            <p id="model" name="model" class="form-control-static">{{ step.model }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-xs-7">
+            <label>Name</label>
+            <input id="name" name="name" placeholder="name" class="form-control" type="text" ng-model="step.name" ng-value="step.name" required>
+        </div>
+        <div class="form-group col-xs-2">
+            <label>Sequence</label>
+            <input type="text" id="sequence" name="sequence" class="form-control" ng-model="step.sequence">
+        </div>
+        <div class="form-group col-xs-3">
+            <label>Duration</label>
+            <select id="duration" name="duration" class="form-control" ng-model="step.duration" ng-options="duration for duration in durations">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <fieldset ng-repeat="a in step.attendees" class="form-horizontal">
+                <div class="col-xs-6">
+                    <label>Role</label>
+                    <select id="role" name="role" class="form-control" ng-model="a.role_id" ng-options="r.id as r.name for r in allRoles" required></select>
+                </div>
+                <div class="col-xs-2">
+                    <label>Quantity</label>
+                    <input type="text" id="quantity" name="quantity" class="form-control" ng-model="a.quantity">
+                </div>
+                <div class="col-xs-2">
+                    <label>Required</label>
+                    <select id="required" name="required" class="form-control" ng-model="a.required" ng-options="bool.id as bool.term for bool in boolAns"></select>
+                </div>
+                <div class="col-xs-2 text-right">
+                    <span class="btn btn-padded-lg btn-danger" ng-show="$last" ng-click="removeRole()"> - </span>
+                    <span class="btn btn-padded-lg btn-primary" ng-show="$last" ng-click="addRole()"> + </span>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-xs-12">
+            <span ng-hide="step.id != null"><a class="btn btn-padded-sm btn-md btn-default" href="#/interviewmodel/{{ step.model_id }}"><i class="fa fa-arrow-left"></i> Back</a></span>
+            <span ng-hide="step.id == null"><a class="btn btn-padded-sm btn-md btn-default" ng-click="toggleEdit(false)"><i class="fa fa-arrow-left"></i> Back</a></span>
+            <a class="btn btn-padded-sm btn-md btn-primary" ng-click="save(step)" ng-disabled="!frm.$valid">Save</a>
+        </div>
+    </div>
+</form>

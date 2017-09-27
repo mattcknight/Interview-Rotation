@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-xs-10">
+        <h3>Locations</h3>
+    </div>
+    <div class="col-xs-2 text-right">
+        <a class="btn btn-padded btn-sm btn-info" href="#/location/create"><i class="fa fa-plus"></i></a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-responsive table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Employees</th>
+            </tr>
+            <tbody>
+                <tr ng-repeat="location in locations | orderBy:'name'" style="cursor:pointer">
+                    <td><a ng-href="#/location/{{location.id}}">{{ location.name }}</a></td>
+                    <td>{{ location.employees }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

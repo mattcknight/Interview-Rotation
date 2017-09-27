@@ -1,0 +1,39 @@
+<div class="row">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/releasetrains">Release Trains</a></li>
+        <li class="breadcrumb-item"><a href="#/releasetrain/{{ employee.teams[0].rt_id }}">{{ employee.teams[0].releasetrain }}</a></li>
+        <li class="breadcrumb-item selected">{{ employee.first_name }} {{ employee.last_name }}</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-xs-8">
+        <h2><code>{{ employee.first_name }} {{ employee.last_name }}</code></h2>
+    </div>
+    <div class="col-xs-4 text-right" ng-hide="editMode">
+        <a class="btn btn-padded btn-sm btn-info" ng-click="toggleEdit(true)"><i class="fa fa-pencil"></i></a>
+        <a class="btn btn-padded btn-sm btn-danger" ng-click="delete(employee)"><i class="fa fa-trash-o"></i></a>
+    </div>
+</div>
+<span ng-hide="editMode">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Details</div>
+                <div class="panel-body">
+                    <p><a ng-href="mailto:{{ employee.email }}" target="_blank">{{ employee.email }}</a></p>
+                    <p>{{ employee.location }}</p>
+                    <p>{{ employee.role }}</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Team(s)</div>
+                <div class="panel-body">
+                    <ul ng-repeat="team in employee.teams | orderBy:'name'" class="list-unstyled">
+                        <li><a href="#/team/{{team.id}}">{{ team.name }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>
+<span ng-include="formUrl"></span>

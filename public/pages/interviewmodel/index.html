@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-xs-10">
+        <h3>Interview Models</h3>
+    </div>
+    <div class="col-xs-2 text-right">
+        <a class="btn btn-padded btn-sm btn-info" href="#/interviewmodel/create"><i class="fa fa-plus"></i></a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-responsive table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Steps</th>
+            </tr>
+            <tbody>
+                <tr ng-repeat="interviewmodel in interviewmodels | orderBy:'name'" style="cursor:pointer">
+                    <td><a ng-href="#/interviewmodel/{{interviewmodel.id}}">{{ interviewmodel.name }} <span ng-show="interviewmodel.isDefault">(default)</span></a></td>
+                    <td>{{ interviewmodel.steps.length }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
